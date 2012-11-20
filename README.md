@@ -1,7 +1,13 @@
+# Install
+
+```bash
+npm install notif
+```
+
 # Usage
 
 ```javascript
-notif.send(actor, verb, object);
+notif.send(actor, verb [, object]);
 ```
 
 Example:
@@ -54,15 +60,15 @@ notif.register('followed', function (notification, cb) {
   });
 });
 
-notify.register('logged in', function (notification) {
+notif.register('logged in', function (notification) {
 
 });
 
-notify.register({ except: ['ignored user'] }, function (notification) {
-  // save to database
+notif.register({ except: ['delete account'] }, function (notification) {
+  console.log('good news!');
 });
 
-notify.register({ only: ['registered'] }, function (notification) {
+notif.register({ only: ['registered'] }, function (notification) {
   // send email...
 });
 

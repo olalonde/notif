@@ -6,6 +6,7 @@ var Notification = function (actor, verb, object) {
   this.actor = actor;
   this.verb = verb;
   this.object = object;
+  this.time = new Date();
 };
 
 var Notif = function() {
