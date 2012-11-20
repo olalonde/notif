@@ -60,8 +60,8 @@ Notif.prototype._executeHandlers = function (notification, cb) {
   handlers.forEach(function (handler) {
     // hanlders are run asynchronously
     handler(notification, function (err, res) {
-      errors.push(err);
-      results.push(res);
+      if (err) errors.push(err);
+      if (res) results.push(res);
       callbackCount++;
 
       // handle last call back -> call external callback with
