@@ -25,7 +25,7 @@ Note: This library follows the [Atom Activity Streams nomenclature](http://activ
 # Registering verb handlers
 
 ```javascript
-notif.registerVerb('followed', function (notification) {
+notif.register('followed', function (notification, cb) {
   // we assume that the notification object looks like this 
   // after bob followed oli:
   //
@@ -54,19 +54,19 @@ notif.registerVerb('followed', function (notification) {
   });
 });
 
-notify.registerVerb('logged in', function (notification) {
+notify.register('logged in', function (notification) {
 
 });
 
-notify.registerVerb({ except: ['ignored user'] }, function (notification) {
+notify.register({ except: ['ignored user'] }, function (notification) {
   // save to database
 });
 
-notify.registerVerb({ only: ['registered'] }, function (notification) {
+notify.register({ only: ['registered'] }, function (notification) {
   // send email...
 });
 
-notify.registerAllVerbs(function (notification) {
+notify.register(function (notification) {
   console.log(notification.toString());
   //console.log(notification.actor + ' ' + notification.verb + ' ' + notifications.object);
 });

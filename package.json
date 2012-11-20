@@ -1,0 +1,24 @@
+{
+  "name": "notif",
+  "version": "0.0.1",
+  "description": "Notification system originally developed to handle notifications on a web app.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/olalonde/notif.git"
+  },
+  "keywords": [
+    "notification",
+    "notif",
+    "express",
+    "mongoose"
+  ],
+  "author": "Olivier Lalonde <olalonde@gmail.com>",
+  "license": "BSD"
+}
