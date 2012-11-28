@@ -1,4 +1,4 @@
-var Notification = function (actor, verb, object) {
+var Notification = function (actor, verb, object, target) {
   if (!actor || !verb) {
     throw new Error('Actor and Verb parameters are mandatory');
   }
@@ -6,6 +6,7 @@ var Notification = function (actor, verb, object) {
   this.actor = actor;
   this.verb = verb;
   this.object = object;
+  this.target = target;
   this.time = new Date();
 };
 
@@ -13,16 +14,21 @@ var Notif = function() {
   this._handlers = [];
 };
 
-Notif.prototype.send = function (actor, verb, object, cb) {
+Notif.prototype.send = function (actor, verb, object, target, cb) {
   if (typeof object === 'function') {
     cb = object;
     object = null;
+  }
+  console.log(arguments);
+  if(typeof target === 'function') {
+    cb = target;
+    target = null;
   }
   if (typeof cb !== 'function') {
     cb = function () {};
   }
 
-  var notification = new Notification(actor, verb, object);
+  var notification = new Notification(actor, verb, object,target);
 
   this._executeHandlers(notification, cb);
 };
